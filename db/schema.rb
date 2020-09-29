@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_063125) do
+ActiveRecord::Schema.define(version: 2020_09_25_102132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,35 @@ ActiveRecord::Schema.define(version: 2020_09_25_063125) do
   create_table "blogs", force: :cascade do |t|
     t.string "heading", limit: 25
     t.string "content", limit: 1000
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.integer "subject_id"
+    t.string "page"
+    t.string "permalink"
+    t.integer "position"
+    t.boolean "visible", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.integer "page_id"
+    t.string "page"
+    t.integer "position"
+    t.boolean "visible", default: false
+    t.string "content_typ"
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name", limit: 25
+    t.integer "position"
+    t.boolean "visible", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
