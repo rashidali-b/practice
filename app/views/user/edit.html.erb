@@ -1,0 +1,29 @@
+<div>
+    <%= form_for(@user,:url=>user_path(@user) ,:method=>'patch') do |f| %>
+    <table>
+    
+        <tr>
+            <td>First Name</td>
+            <td><%= f.text_field( :first_name) %></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><%= f.text_field( :last_name) %></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><%= f.text_field( :email) %></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><%= f.text_field( :password) %></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><%= f.submit("Update") %></td>
+        </tr>
+           
+    </table>    
+    <% end %>
+    
+</div>
